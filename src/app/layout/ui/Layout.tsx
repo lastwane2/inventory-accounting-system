@@ -4,7 +4,7 @@ import { Outlet } from "react-router";
 
 const Layout: FC = () : ReactElement => {
     return (
-        <div className="bg-[#dad7cd] flex w-full">
+        <div className="bg-[#f8f9fa] flex w-full">
             <Sidebar/>
             <Outlet/>
         </div>
