@@ -7,8 +7,18 @@ export const warehouseApi = createApi({
     endpoints: (builder) => ({
         getWarehouses : builder.query({
             queryFn: () => ({ data: warehouses})
+        }),
+        getWarehouseById : builder.query({
+            queryFn: (id: string) => {
+                const warehouse = warehouses.find(warehouse => warehouse.id === id as string);
+                if (warehouse) {
+                    return { data: warehouse };
+                } else {
+                    return { error: { status: 404, data: "Warehouse not found" } };
+                }
+            }
         })
     })
 })
 
-export const { useGetWarehousesQuery } = warehouseApi;
+export const { useGetWarehousesQuery, useGetWarehouseByIdQuery } = warehouseApi;

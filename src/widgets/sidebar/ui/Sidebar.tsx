@@ -9,6 +9,7 @@ const Sidebar: FC = () : ReactElement => {
             <Link to="/warehouse">
                 <Button
                     variant='text'
+                    color='secondary'
                     fullWidth
                 >
                     Склады
@@ -17,6 +18,7 @@ const Sidebar: FC = () : ReactElement => {
 
             <Button
                 variant='text'
+                color='secondary'
                 fullWidth
             >
                 Профиль
@@ -24,6 +26,7 @@ const Sidebar: FC = () : ReactElement => {
 
             <Button
                 variant='text'
+                color='secondary'
                 fullWidth
             >
                 Выйти

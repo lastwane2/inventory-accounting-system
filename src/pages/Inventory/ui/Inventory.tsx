@@ -2,6 +2,7 @@ import { InventoryItem } from "@/widgets/InventoryItem";
 import { FC, ReactElement } from "react";
 
 import { useGetWarehousesQuery } from "@/shared/api/inventoryApi";
+import { Link } from "react-router";
 
 const Inventory: FC = () : ReactElement => {
     const { data, isLoading, isError } = useGetWarehousesQuery(undefined, { refetchOnMountOrArgChange: true });
@@ -13,9 +14,11 @@ const Inventory: FC = () : ReactElement => {
           ): isLoading ? (
             <>Loading...</>
           ) : data ? (
-            <div>
+            <div className="flex flex-col gap-3">
                 {data.map((warehouse) => (
+                  <Link to={`/warehouse/${warehouse.id}`} key={warehouse.id}>
                     <InventoryItem key={warehouse.id} text={warehouse.name} />
+                  </Link>
                 ))}
             </div>
           ) : null}  

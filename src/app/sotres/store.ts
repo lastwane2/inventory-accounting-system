@@ -1,9 +1,11 @@
+import authReducer from '@/entities/user/model/authSlice'
 import { warehouseApi } from '@/shared/api/inventoryApi'
 import { configureStore } from '@reduxjs/toolkit'
 
 
 export const store = configureStore({
     reducer: {
+        auth: authReducer,
         [warehouseApi.reducerPath]: warehouseApi.reducer,
     },
 
