@@ -16,7 +16,7 @@ const Inventory: FC = () : ReactElement => {
           ) : data ? (
             <div className="flex flex-col gap-3">
                 {data.map((warehouse) => (
-                  <Link to={`/warehouse/${warehouse.id}`} key={warehouse.id}>
+                  <Link to={`/user/warehouse/${warehouse.id}`} key={warehouse.id}>
                     <InventoryItem key={warehouse.id} text={warehouse.name} />
                   </Link>
                 ))}

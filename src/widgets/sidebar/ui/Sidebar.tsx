@@ -1,12 +1,11 @@
 import Button from '@mui/material/Button';
-import {FC, ReactElement} from "react";
 import { Link } from 'react-router';
 
-const Sidebar: FC = () : ReactElement => {
+const Sidebar = () => {
     return (
         <div className="w-1/5 bg-[#212529] h-screen">
             
-            <Link to="/warehouse">
+            <Link to="/user/warehouse">
                 <Button
                     variant='text'
                     color='secondary'
@@ -16,13 +15,15 @@ const Sidebar: FC = () : ReactElement => {
                 </Button>
             </Link>
 
-            <Button
-                variant='text'
-                color='secondary'
-                fullWidth
-            >
-                Профиль
-            </Button>
+            <Link to="/user">
+                <Button
+                    variant='text'
+                    color='secondary'
+                    fullWidth
+                >
+                    Профиль
+                </Button>
+            </Link>
 
             <Button
                 variant='text'

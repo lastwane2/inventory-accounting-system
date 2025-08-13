@@ -1,11 +1,11 @@
-import authReducer from '@/entities/user/model/authSlice'
+import authReducer from '@/entities/user/model/userSlice'
 import { warehouseApi } from '@/shared/api/inventoryApi'
 import { configureStore } from '@reduxjs/toolkit'
 
 
 export const store = configureStore({
     reducer: {
-        auth: authReducer,
+        user: authReducer,
         [warehouseApi.reducerPath]: warehouseApi.reducer,
     },
 

@@ -1,9 +1,7 @@
-
 import { useGetWarehouseByIdQuery } from "@/shared/api/inventoryApi";
-import { FC, ReactElement } from "react";
 import { useParams } from "react-router";
 
-const Warehouse: FC = () : ReactElement => {
+export const Warehouse = () => {
     const params = useParams()
 
     const { data, isLoading, isError } = useGetWarehouseByIdQuery(params.id as string, { refetchOnMountOrArgChange: true });
@@ -22,5 +20,3 @@ const Warehouse: FC = () : ReactElement => {
         </div>
     )
 }
-
-export { Warehouse }
