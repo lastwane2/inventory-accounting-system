@@ -4,7 +4,7 @@ import { Inventory } from "@/pages/Inventory"
 import { Warehouse } from "@/pages/Warehouse"
 import { ThemeProvider } from "@mui/material/styles"
 import { theme } from "@/shared/config"
-import { RegistrationPage } from "@/pages/login"
+import { LoginPage, RegistrationPage } from "@/pages/login"
 import { PrivateRoute } from "./router/PrivateRoute"
 
 function App() {
@@ -20,6 +20,7 @@ function App() {
           </Route>
         </Route>
         <Route path="/signup" element={<RegistrationPage/>}/>
+        <Route path="/signin" element={<LoginPage/>}/>
       </Routes>
     </BrowserRouter>
     </ThemeProvider>

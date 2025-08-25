@@ -1,3 +1,4 @@
+import { authMethods } from '@/shared/api/login';
 import Button from '@mui/material/Button';
 import { Link } from 'react-router';
 
@@ -24,14 +25,16 @@ const Sidebar = () => {
                     Профиль
                 </Button>
             </Link>
-
-            <Button
-                variant='text'
-                color='secondary'
-                fullWidth
-            >
-                Выйти
-            </Button>
+            <Link to="/signup">
+                <Button
+                    onClick={authMethods.signout}
+                    variant='text'
+                    color='secondary'
+                    fullWidth
+                >
+                    Выйти
+                </Button>
+            </Link>
         </div>
     )
 } 

@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { auth } from "@/shared/lib/firebase"
 import type { User } from "firebase/auth"
 
@@ -22,5 +22,16 @@ export const authMethods = {
           console.log(error.code, error.message)
           return null
         }
+    },
+
+    signout: async () => {
+      try {
+        signOut(auth)
+        console.log("you signed out")
+        return null
+      } catch (error: any) {
+        console.log(error)
+        return null
+      }
     }
-}
+  }

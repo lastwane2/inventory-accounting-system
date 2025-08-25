@@ -10,5 +10,5 @@ export const PrivateRoute = () => {
         return <div>loading...</div>
     }
 
-    return  isAuth ? <Outlet /> : <Navigate to="/signup" replace/>
+    return  isAuth ? <Outlet /> : <Navigate to="/signin" replace/>
 }

@@ -1,7 +1,7 @@
 import Button from "@mui/material/Button"
 import Input from "@mui/material/Input"
 import { FC, ReactElement, useState } from "react"
-import { authMethods } from "../api/login"
+import { authMethods } from "@/shared/api/login"
 import { useDispatch } from "react-redux";
 import { setUser } from "@/entities/user/model/userSlice";
 import { useNavigate } from "react-router";
