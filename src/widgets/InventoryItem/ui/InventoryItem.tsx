@@ -1,5 +1,5 @@
-    interface InventoryItemProps {
-    text: string
+interface InventoryItemProps {
+    text?: string
 }
 
 const InventoryItem = ({ text } : InventoryItemProps) => {

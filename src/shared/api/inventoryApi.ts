@@ -1,23 +1,29 @@
-import { warehouses } from "@/data/warehouses";
-import { createApi, fakeBaseQuery } from "@reduxjs/toolkit/query/react";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { IWarehouse } from "../model/warehouseSchema";
+import { auth } from "../lib/firebase";
 
 export const warehouseApi = createApi({
     reducerPath: "warehouseApi",
-    baseQuery: fakeBaseQuery(),
+    baseQuery: fetchBaseQuery({
+        baseUrl:"http://localhost:3001/api",
+        prepareHeaders: async (headers) => {
+            const token = auth.currentUser?.getIdToken?.()
+            if (token) headers.set("authorization", `Bearer ${token}`)
+        }
+    }),
     endpoints: (builder) => ({
-        getWarehouses : builder.query({
-            queryFn: () => ({ data: warehouses})
+        
+        getWarehouses : builder.query<IWarehouse[], void>({
+            query: () => ({
+                url: "/warehouses",
+                method: "GET"
+            })
         }),
-        getWarehouseById : builder.query({
-            queryFn: (id: string) => {
-                const warehouse = warehouses.find(warehouse => warehouse.id === id as string);
-                if (warehouse) {
-                    return { data: warehouse };
-                } else {
-                    return { error: { status: 404, data: "Warehouse not found" } };
-                }
-            }
+
+        getWarehouseById : builder.query<IWarehouse, string>({
+            query: (id) => `/warehouses/${id}`
         })
+        
     })
 })
 

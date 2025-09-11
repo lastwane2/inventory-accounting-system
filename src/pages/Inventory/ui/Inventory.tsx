@@ -5,7 +5,7 @@ import { useGetWarehousesQuery } from "@/shared/api/inventoryApi";
 import { Link } from "react-router";
 
 const Inventory: FC = () : ReactElement => {
-    const { data, isLoading, isError } = useGetWarehousesQuery(undefined, { refetchOnMountOrArgChange: true });
+    const { data, isLoading, isError } = useGetWarehousesQuery();
 
     return(
         <div className="w-full box-border p-8">
