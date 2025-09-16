@@ -11,20 +11,30 @@ export const warehouseApi = createApi({
             if (token) headers.set("authorization", `Bearer ${token}`)
         }
     }),
+    tagTypes: ["Warehouses"],
     endpoints: (builder) => ({
         
         getWarehouses : builder.query<IWarehouse[], void>({
             query: () => ({
                 url: "/warehouses",
                 method: "GET"
-            })
+            }),
+            providesTags: ["Warehouses"]
         }),
 
         getWarehouseById : builder.query<IWarehouse, string>({
             query: (id) => `/warehouses/${id}`
+        }),
+
+        deleteWarehouseById : builder.mutation<void, string> ({
+            query: (id) => ({
+                url: `/warehouses/${id}`,
+                method: "DELETE"
+            }),
+            invalidatesTags: ["Warehouses"]
         })
         
     })
 })
 
-export const { useGetWarehousesQuery, useGetWarehouseByIdQuery } = warehouseApi;
+export const { useGetWarehousesQuery, useGetWarehouseByIdQuery, useDeleteWarehouseByIdMutation} = warehouseApi;

@@ -1,15 +1,15 @@
 export interface IWarehouse {
-    id?: string,
-    name?: string,
-    location?: string,
-    contents?: IContents[],
-    createdAt?: string,
-    updatedAt?: string,
+    id: string,
+    name: string,
+    location: string,
+    contents: IContents[],
+    createdAt: string,
+    updatedAt: string,
 }
 
 interface IContents {
-    id?: string,
-    name?: string,
+    id: string,
+    name: string,
     material?: string,
     quantity?: number,
     unit?: UnitValues,
