@@ -1,4 +1,5 @@
 import { useGetWarehouseByIdQuery } from "@/shared/api/inventoryApi";
+import { ContentsForm } from "@/widgets/ContentsForm";
 import { useParams } from "react-router";
 
 export const Warehouse = () => {
@@ -14,7 +15,11 @@ export const Warehouse = () => {
             ): isLoading ? (
                 <div>Loading...</div>
             ): data ? (
-                <div>{data.name}</div>
+                <div>
+                    <ContentsForm warehouseData={data} id={params.id}/>
+                    {data.location}
+                    {data.contents?.map((elem) => <div>{elem.material}</div>)}
+                </div>
             )
             : null}
         </div>

@@ -32,9 +32,32 @@ export const warehouseApi = createApi({
                 method: "DELETE"
             }),
             invalidatesTags: ["Warehouses"]
+        }),
+
+        createWarehouse : builder.mutation<IWarehouse, IWarehouse>({
+            query: (warehouse) => ({
+                url: "/warehouses",
+                method: "POST",
+                body: warehouse
+            }),
+            invalidatesTags: ["Warehouses"]
+        }),
+
+        updateWarehouse : builder.mutation<IWarehouse, {id : string, warehouse: IWarehouse}>({
+            query: ({id, warehouse}) => ({
+                url: `/warehouses/${id}`,
+                method: "PUT",
+                body: warehouse
+            }),
+            invalidatesTags: ["Warehouses"]
         })
-        
     })
 })
 
-export const { useGetWarehousesQuery, useGetWarehouseByIdQuery, useDeleteWarehouseByIdMutation} = warehouseApi;
+export const { 
+    useGetWarehousesQuery, 
+    useGetWarehouseByIdQuery, 
+    useDeleteWarehouseByIdMutation,
+    useCreateWarehouseMutation,
+    useUpdateWarehouseMutation
+} = warehouseApi;

@@ -50,6 +50,8 @@ export const LoginPage = () => {
                 <Link to="/signup">Зарегестрироваться</Link>
                 {backError && <span className="text-red-700">{backError}</span>}
             </form>
+
+            
         </div>
     )
 }
